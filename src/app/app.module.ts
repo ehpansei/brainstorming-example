@@ -10,7 +10,7 @@ import {
   MatButtonModule,
   MatInputModule,
   MatCardModule,
-  MatFormFieldModule,
+  MatFormFieldModule
 } from '@angular/material';
 
 // FxFlex

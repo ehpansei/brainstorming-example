@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ItemDetailComponent } from './dashboard/item-detail/item-detail.component';
+import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: DashboardComponent,
+    component: AppComponent,
     children: [
       {
         path: '',
@@ -15,12 +16,11 @@ const routes: Routes = [
       },
       {
         path: 'dashboard',
-        children: [
-          {
-            path: 'item-detail/:id',
-            component: ItemDetailComponent
-          }
-        ]
+        component: DashboardComponent
+      },
+      {
+        path: 'item-detail/:id',
+        component: ItemDetailComponent
       }
     ]
   }

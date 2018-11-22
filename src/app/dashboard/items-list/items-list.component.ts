@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+
+// Entities
 import { Item } from 'src/app/entities/item';
 
 @Component({
@@ -10,11 +13,13 @@ export class ItemsListComponent implements OnInit {
 
   @Input() items: Item[];
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit() {
-    console.log(this.items);
   }
 
+  view(item: Item) {
+    this.router.navigate(['item-detail', item.id]);
+  }
 }
