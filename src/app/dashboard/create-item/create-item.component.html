@@ -1,3 +1,49 @@
-<p>
-  create-item works!
-</p>
+<div fxLayout="column" fxFlex="100">
+
+  <div fxLayout="row wrap">
+    <h3>Create a new Todo</h3>
+  </div>
+
+  <div fxLayout="row wrap">
+    <form [formGroup]="todoItemForm" class="form-container">
+        <div fxLayout="column">
+
+          <!-- name -->
+          <div fxFlex="auto">
+            <mat-form-field>
+              <input matInput formControlName="name" placeholder="Name"
+                required
+              >
+              <mat-error *ngIf="todoItemForm.get('name').hasError('required')">
+                Name is <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="todoItemForm.get('name').hasError('minLength')">
+                Name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <!-- description -->
+          <div fxFlex="auto">
+            <mat-form-field>
+              <input matInput formControlName="description"
+                placeholder="Description" required
+              >
+            </mat-form-field>
+          </div>
+
+        </div>
+    </form>
+  </div>
+
+  <!-- Create list item -->
+  <div fxLayout="row wrap">
+    <div fxFlex="auto" fxLayoutAlign="end center">
+      <button mat-raised-button color="primary">Create</button>
+    </div>
+  </div>
+
+</div>
+
+
+
