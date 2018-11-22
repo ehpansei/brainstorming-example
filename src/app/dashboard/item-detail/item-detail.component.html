@@ -1,3 +1,26 @@
-<p>
-  item-detail works!
-</p>
+<mat-card fxFlex="30">
+  <div fxLayout="column" fxFlex="100">
+
+    <div fxLayout="row wrap">
+      <h2>
+        {{item.name}}
+      </h2>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div fxLayout="row wrap">
+      <p>
+        {{item.description}}
+      </p>
+    </div>
+
+    <div fxLayout="row wrap">
+      <div fxFlex="auto" fxLayoutAlign="end center">
+        <button mat-raised-button color="accent" (click)="back()">Back</button>
+      </div>
+    </div>
+
+  </div>
+</mat-card>
+

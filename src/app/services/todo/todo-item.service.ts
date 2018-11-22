@@ -42,7 +42,8 @@ export class TodoItemService {
     return of(this.items);
   }
 
-  view(item: Item) {
+  view(id: number) {
+    return of(this.items[id - 1]);
   }
 
   delete(id: number) {
