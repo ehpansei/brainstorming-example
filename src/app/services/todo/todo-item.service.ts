@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Item } from '../../entities/item';
 import { Observable, of } from 'rxjs';
-import { forEach } from '@angular/router/src/utils/collection';
 
 @Injectable({
   providedIn: 'root'
@@ -56,6 +55,10 @@ export class TodoItemService {
   }
 
   delete(id: number) {
-    this.items.splice(id - 1, 1);
+    for (let i = 0; i < this.items.length; i++) {
+      if (this.items[i].id === id) {
+        this.items.splice(i, 1);
+      }
+    }
   }
 }

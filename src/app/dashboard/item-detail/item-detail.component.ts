@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Item } from '../../entities/item';
-import { switchMap } from 'rxjs/operators';
 import { TodoItemService } from '../../services/todo/todo-item.service';
 
 @Component({
