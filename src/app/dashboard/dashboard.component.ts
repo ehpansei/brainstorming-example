@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Item } from '../entities/item';
+import { TodoItemService } from '../services/todo/todo-item.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,31 +10,19 @@ import { Item } from '../entities/item';
 })
 export class DashboardComponent implements OnInit {
 
-  items: Item[] = [];
+  items: Item[];
 
-  constructor() { }
+  constructor(private todoService: TodoItemService) {
+  }
 
   ngOnInit() {
-    this.items = [
-      {
-        id: 1,
-        name: 'ITEM 1',
-        description: 'item 1 description',
-        done: false
-      },
-      {
-        id: 2,
-        name: 'ITEM 2',
-        description: 'item 2 description',
-        done: false
-      },
-      {
-        id: 3,
-        name: 'ITEM 3',
-        description: 'item 3 description',
-        done: false
-      }
-    ];
+    this.index();
+  }
+
+  index() {
+    this.todoService.get().subscribe(response => {
+      this.items = response;
+    });
   }
 
 }

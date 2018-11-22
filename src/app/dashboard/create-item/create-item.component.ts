@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { TodoItemService } from '../../services/todo/todo-item.service';
+import { Item } from '../../entities/item';
 
 @Component({
   selector: 'app-create-item',
@@ -10,13 +12,15 @@ export class CreateItemComponent implements OnInit {
   // The form
   todoItemForm: FormGroup;
 
+  // the Item to store
+  item: Item;
 
   // Name control
 
 
   // Description control
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private todoService: TodoItemService) {
   }
 
   ngOnInit() {
@@ -34,13 +38,27 @@ export class CreateItemComponent implements OnInit {
         ]
       ],
       description: [
-        '',
+        ''
       ]
     });
   }
 
-  prepareTodoItem() {
+  onCreate() {
+    // prepare the item to be stored
+    this.item = this.prepareTodoItem();
 
+    this.todoService.create(this.item);
   }
 
+  prepareTodoItem(): Item {
+    const form = this.todoItemForm.value;
+
+    const itemModel: Item = {
+      name: form.name,
+      description: form.description,
+      done: false
+    };
+
+    return itemModel;
+  }
 }
