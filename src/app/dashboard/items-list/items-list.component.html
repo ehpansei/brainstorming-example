@@ -6,10 +6,24 @@
       </div>
       <table mat-table>
         <tr *ngFor="let item of items">
+          <mat-checkbox
+            [checked]="item.done"
+            (change)="onChange($event, item)"
+          ></mat-checkbox>
           {{ item.name }}
           <button mat-icon-button (click)="view(item)">
-            <mat-icon color="primary" class="table__cell--icon_not_disabled"
-            >zoom-in
+            <mat-icon
+              color="primary"
+              class="table__cell--icon_not_disabled"
+            >search
+            </mat-icon
+            >
+          </button>
+          <button mat-icon-button (click)="onDelete(item)">
+            <mat-icon
+              color="accent"
+              class="table__cell--icon_not_disabled"
+            >clear
             </mat-icon
             >
           </button>

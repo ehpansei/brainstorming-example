@@ -32,6 +32,6 @@ export class ItemDetailComponent implements OnInit {
   }
 
   back() {
-    console.log('back');
+    this.router.navigate(['/dashboard']);
   }
 }

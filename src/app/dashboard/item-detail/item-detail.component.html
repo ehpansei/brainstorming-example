@@ -16,6 +16,18 @@
     </div>
 
     <div fxLayout="row wrap">
+      <div fxFlex="20" fxLayoutAlign="end center">
+        <div fxLayout="column" fxFlex="70">
+          Done
+        </div>
+        <div fxLayout="column" fxFlex="30">
+          <span *ngIf="item.done; else notDone;">Yes</span>
+          <ng-template #notDone>No</ng-template>
+        </div>
+      </div>
+    </div>
+
+    <div fxLayout="row wrap">
       <div fxFlex="auto" fxLayoutAlign="end center">
         <button mat-raised-button color="accent" (click)="back()">Back</button>
       </div>

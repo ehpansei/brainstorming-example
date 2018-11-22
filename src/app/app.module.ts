@@ -10,7 +10,7 @@ import {
   MatButtonModule,
   MatInputModule,
   MatCardModule,
-  MatFormFieldModule
+  MatFormFieldModule, MatCheckboxModule
 } from '@angular/material';
 
 // FxFlex
@@ -47,6 +47,7 @@ import { AppRoutingModule } from './app-routing.module';
     MatInputModule,
     MatCardModule,
     MatFormFieldModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

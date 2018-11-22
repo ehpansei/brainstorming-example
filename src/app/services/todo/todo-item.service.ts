@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Item } from '../../entities/item';
 import { Observable, of } from 'rxjs';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class TodoItemService {
       id: 2,
       name: 'ITEM 2',
       description: 'item 2 description',
-      done: false
+      done: true
     },
     {
       id: 3,
@@ -29,6 +30,10 @@ export class TodoItemService {
   ];
 
   constructor() {
+  }
+
+  patch(item: Item, key: string, value: any) {
+    item[key] = value;
   }
 
   create(item: Item) {
@@ -43,10 +48,14 @@ export class TodoItemService {
   }
 
   view(id: number) {
-    return of(this.items[id - 1]);
+    for (let i = 0; i < this.items.length; i++) {
+      if (this.items[i].id === id) {
+        return of(this.items[i]);
+      }
+    }
   }
 
   delete(id: number) {
-
+    this.items.splice(id - 1, 1);
   }
 }
