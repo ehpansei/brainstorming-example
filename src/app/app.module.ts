@@ -3,16 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ParentComponent } from './parent/parent.component';
-import { ListComponent } from './parent/list/list.component';
-import { DetailComponent } from './parent/detail/detail.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ItemsListComponent } from './dashboard/items-list/items-list.component';
+import { ItemDetailComponent } from './dashboard/item-detail/item-detail.component';
+import { CreateItemComponent } from './dashboard/create-item/create-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ParentComponent,
-    ListComponent,
-    DetailComponent
+    DashboardComponent,
+    ItemsListComponent,
+    ItemDetailComponent,
+    CreateItemComponent,
   ],
   imports: [
     BrowserModule,
