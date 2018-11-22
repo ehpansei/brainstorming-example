@@ -1,3 +1,15 @@
-<p>
-  items-list works!
-</p>
+<mat-card class="card__container">
+  <div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="start center">
+    <div *ngIf="items.length > 0; else: elseNoItems">
+      <div>
+        <b>ToDo List</b>
+      </div>
+      <table mat-table>
+        <tr *ngFor="let item of items">
+          {{ item.name }}
+        </tr>
+      </table>
+    </div>
+    <ng-template #elseNoItems> No items </ng-template>
+  </div>
+</mat-card>

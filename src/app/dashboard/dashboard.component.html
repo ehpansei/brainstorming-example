@@ -1,9 +1,9 @@
 <div fxLayout="row">
-  <div fxFlex="start center">
-    <app-items-list></app-items-list>
+  <div fxFlex="30" fxLayout="row wrap" fxLayoutAlign="start center">
+    <app-items-list [items]="items"></app-items-list>
   </div>
 
-  <div fxFlex="end center">
+  <div fxFlex="70" fxLayout="row wrap" fxLayoutAlign="start center">
     <app-create-item></app-create-item>
   </div>
 </div>
