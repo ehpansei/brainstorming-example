@@ -11,14 +11,18 @@
           <!-- name -->
           <div fxFlex="auto">
             <mat-form-field>
-              <input matInput formControlName="name" placeholder="Name"
+              <input
+                matInput
+                formControlName="name"
+                placeholder="Name"
                 required
               >
-              <mat-error *ngIf="todoItemForm.get('name').hasError('required')">
+              <mat-error *ngIf="controlName.hasError('required')">
                 Name is <strong>required</strong>
               </mat-error>
-              <mat-error *ngIf="todoItemForm.get('name').hasError('minLength')">
-                Name is <strong>required</strong>
+              <mat-error *ngIf="controlName.hasError('minLength')">
+                Name has to have at least
+                <strong>{{ controlName.errors.minlength.requiredLength }}</strong>
               </mat-error>
             </mat-form-field>
           </div>
@@ -27,7 +31,7 @@
           <div fxFlex="auto">
             <mat-form-field>
               <input matInput formControlName="description"
-                placeholder="Description" required
+                placeholder="Description"
               >
             </mat-form-field>
           </div>

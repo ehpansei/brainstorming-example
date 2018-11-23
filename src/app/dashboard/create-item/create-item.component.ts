@@ -16,9 +16,14 @@ export class CreateItemComponent implements OnInit {
   item: Item;
 
   // Name control
-
+  get controlName(): FormControl {
+    return this.todoItemForm.get('name') as FormControl;
+  }
 
   // Description control
+  get controlDescription(): FormControl {
+    return this.todoItemForm.get('description') as FormControl;
+  }
 
   constructor(private fb: FormBuilder, private todoService: TodoItemService) {
   }
@@ -41,12 +46,15 @@ export class CreateItemComponent implements OnInit {
         ''
       ]
     });
+
+    console.log(this.todoItemForm);
   }
 
   onCreate() {
     // prepare the item to be stored
     this.item = this.prepareTodoItem();
 
+    // store the new item
     this.todoService.create(this.item);
   }
 
